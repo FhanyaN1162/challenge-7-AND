@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailsActivity">
+
+    <!-- Tampilan gambar makanan di bagian atas -->
+    <ImageView
+        android:id="@+id/imgFood"
+        android:layout_width="wrap_content"
+        android:layout_height="280dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/nasi_goreng"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnBack"
+        android:contentDescription="@null"/>
+
+    <!-- Tombol kembali di pojok kiri atas -->
+    <ImageView
+        android:id="@+id/btnBack"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="8dp"
+        android:src="@drawable/left_arrow"
+        app:layout_constraintStart_toStartOf="@+id/imgFood"
+        app:layout_constraintTop_toTopOf="@+id/imgFood"
+        android:contentDescription="@null"/>
+
+
+    <!-- Informasi makanan -->
+    <TextView
+        android:id="@+id/txtFoodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:text="@string/nama_makanan"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgFood" />
+
+    <TextView
+        android:id="@+id/txtFoodPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp"
+        android:text="@string/rp_20_000"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFoodName" />
+
+    <TextView
+        android:id="@+id/txtFoodDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="20dp"
+        android:text="@string/deskripsi_makanan_yang_panjang_panjang"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtFoodPrice" />
+
+    <!-- Garis pemisah -->
+    <View
+        android:id="@+id/line1"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/txtFoodDescription"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Lokasi restaurant -->
+    <ImageView
+        android:id="@+id/imgLocation"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/store"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/line1"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/txtLocation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:textSize="20sp"
+        android:text="@string/lokasi_restaurant"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/imgLocation"
+        app:layout_constraintTop_toBottomOf="@+id/line1" />
+
+    <!-- Alamat Google Maps -->
+    <TextView
+        android:id="@+id/txtGoogleMaps"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:text="@string/tampilkan_di_google_maps"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgLocation" />
+
+    <!-- Garis pemisah -->
+    <View
+        android:id="@+id/line2"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@+id/txtGoogleMaps"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!-- Tombol tambah/minus -->
+    <LinearLayout
+        android:id="@+id/containerQuan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@+id/line2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageButton
+            android:id="@+id/btnDecrease2"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/remove"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/txtItemQuantity2"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:text="@string/_0"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            />
+
+
+        <ImageButton
+            android:id="@+id/btnIncrease2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:src="@drawable/add"
+            android:background="?android:attr/selectableItemBackground"
+            android:contentDescription="@null"/>
+
+
+    </LinearLayout>
+
+    <!-- Tombol "Tambah Ke Keranjang" -->
+
+    <Button
+        android:id="@+id/btnAddToCart2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/tambah_ke_keranjang_rp_0"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerQuan"/>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

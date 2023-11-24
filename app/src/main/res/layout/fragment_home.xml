@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".fragment.HomeFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="10dp">
+        <TextView
+            android:id="@+id/txtGreeting"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:text="@string/hai_binarian"
+            android:textSize="20sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtGreeting2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:text="@string/mau_makan_apa_hari_ini"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtGreeting" />
+
+        <ImageView
+            android:id="@+id/imgBanner"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/banner1"
+            android:scaleType="fitXY"
+            app:layout_constraintTop_toBottomOf="@+id/txtGreeting2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:contentDescription="@null"/>
+
+        <ImageView
+            android:id="@+id/imgDiscount"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:src="@drawable/discount"
+            app:layout_constraintStart_toStartOf="@+id/imgBanner"
+            app:layout_constraintTop_toTopOf="@+id/imgBanner"
+            app:layout_constraintBottom_toBottomOf="@id/imgBanner"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/txtDiscount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:text="@string/diskon_50"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toEndOf="@+id/imgDiscount"
+            app:layout_constraintTop_toTopOf="@+id/imgBanner"
+            app:layout_constraintBottom_toTopOf="@id/txtDiscountDescription"/>
+
+        <TextView
+            android:id="@+id/txtDiscountDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:textColor="@color/white"
+            android:text="@string/pesan_makanan_dengan_aplikasi_dan_dapatkan_diskonmu"
+            app:layout_constraintTop_toBottomOf="@+id/txtDiscount"
+            app:layout_constraintStart_toEndOf="@+id/imgDiscount"
+            app:layout_constraintEnd_toEndOf="@+id/imgBanner"
+            app:layout_constraintBottom_toBottomOf="@id/imgBanner" />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvCategories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:nestedScrollingEnabled="true"
+            android:paddingHorizontal="8dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imgBanner"
+            tools:listitem="@layout/category_item" />
+        <TextView
+            android:id="@+id/txtListMakanan"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:text="@string/list_menu_makanan"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvCategories"/>
+        <!-- Tombol Ganti Tampilan (Grid) -->
+        <ImageView
+            android:id="@+id/changeLayout"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="10sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvCategories"
+            android:contentDescription="@string/change_layout_button"/>
+
+        <!-- RecyclerView untuk Daftar Menu Makanan -->
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerViewMenuGrid"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"
+            android:layout_marginTop="8dp"
+            android:clipToPadding="false"
+            android:paddingTop="8dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:scrollbars="vertical"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/changeLayout"
+            app:spanCount="2" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

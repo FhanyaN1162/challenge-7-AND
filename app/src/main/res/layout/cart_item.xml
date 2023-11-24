@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp">
+
+    <ImageView
+        android:id="@+id/imgCartItem"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:scaleType="centerCrop"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/txtCartItemName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/imgCartItem"
+        app:layout_constraintTop_toTopOf="parent"
+        android:text="@string/nama_item_makanan"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/txtCartItemPrice"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/imgCartItem"
+        app:layout_constraintTop_toBottomOf="@+id/txtCartItemName"
+        android:text="@string/rp_20_000_2"
+        android:textSize="14sp"
+        />
+
+    <ImageButton
+        android:id="@+id/btnIncrease3"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:scaleType="fitXY"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtCartItemPrice"
+        android:src="@drawable/add"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/txtItemQuantity"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        app:layout_constraintEnd_toStartOf="@+id/btnIncrease3"
+        app:layout_constraintTop_toBottomOf="@+id/txtCartItemPrice"
+        android:text="@string/_1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+
+    <ImageButton
+        android:id="@+id/btnDecrease3"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toStartOf="@+id/txtItemQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/txtCartItemPrice"
+        android:src="@drawable/remove"
+        android:background="?android:attr/selectableItemBackground"
+        android:contentDescription="@null"/>
+
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/trashbin"
+        android:contentDescription="@string/delete"
+        android:padding="4dp"
+        android:background="?android:attr/selectableItemBackground"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnDecrease3"
+        android:background="@color/black"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/divider"
+        android:gravity="center">
+        <TextView
+            android:id="@+id/txtCartNote"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/catatan"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_notes_item"
+            style="@style/ThemeOverlay.Material3.TextInputEditText.FilledBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:hint="@string/tulis_catatan_disini"
+            android:imeOptions="actionDone"
+            android:inputType="text"
+            android:maxLines="3"
+            android:padding="8dp"
+            android:textSize="12sp" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
