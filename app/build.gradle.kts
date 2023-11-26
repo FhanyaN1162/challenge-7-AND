@@ -28,12 +28,26 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
+        }
+    }
+
+    flavorDimensions += "version"
+    productFlavors {
+        create("demo") {
+            versionNameSuffix = ".demo"
+            buildConfigField("String", "BASE_URL", "\"https://testing.jasa-nikah-siri-amanah-profesional.com\"")
+        }
+        create("full") {
+            versionNameSuffix = ".full"
+            buildConfigField("String", "BASE_URL", "\"https://testing.jasa-nikah-siri-amanah-profesional.com\"")
         }
     }
 
 
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 
     compileOptions {
